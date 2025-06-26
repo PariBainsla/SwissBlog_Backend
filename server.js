@@ -5,7 +5,12 @@ const middlewares = jsonServer.defaults();
 const cors = require('cors');
 
 // Enable CORS for all requests
-server.use(cors());
+server.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type']
+}));
+
 server.use(middlewares);
 server.use(router);
 
